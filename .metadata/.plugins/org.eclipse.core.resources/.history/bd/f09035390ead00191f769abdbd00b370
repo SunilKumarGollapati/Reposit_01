@@ -1,0 +1,46 @@
+package pack1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+public class My_Demo_05 {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver;
+		System.setProperty("webdriver.gecko.driver","C:\\Driver\\Chrome Driver\\geckodriver.exe");
+		driver = new FirefoxDriver();
+		driver.navigate().to("http://10.232.237.143:443/TestMeApp");
+		driver.manage().window().maximize();
+		WebDriverWait wait = new WebDriverWait(driver,60);
+		wait.until(ExpectedConditions.presenceOfElementLocated(By.linkText("SignIn")));
+		driver.findElement(By.xpath("//a[contains(text(),'SignIn')]")).click();
+		Thread.sleep(10000);
+		driver.findElement(By.xpath("//input[@name='userName']")).sendKeys("fgmnzx");
+		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("mnbvcxz");
+		driver.findElement(By.xpath("//input[@name='Login']")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//span[contains(text(),'All')]")).click();
+		Actions act = new Actions(driver);
+		driver.findElement(By.xpath("//a[@href='checkout.htm']")).click();
+		driver.findElement(By.xpath("//textarea[@name='ShippingAdd']")).sendKeys("Sector 20 Gurugram");
+		driver.findElement(By.xpath("//input[@value='Proceed to Pay']")).click();
+		Thread.sleep(20000);
+		driver.findElement(By.xpath("//*[@id=\"swit\"]/div[1]/div/label/i")).click();
+		driver.findElement(By.xpath("//a[text()='Continue']")).click();
+		driver.findElement(By.xpath("//input[@name='username']")).sendKeys("123456");
+		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("Pass@456");
+		driver.findElement(By.xpath("//input[@value='LOGIN']")).click();
+		driver.findElement(By.xpath("//input[@name='transpwd']")).sendKeys("Trans@456");
+		driver.findElement(By.xpath("//input[@value='PayNow']")).click();
+		String E_title = driver.getTitle();
+		String A_title ="Order Details";
+		Assert.assertEquals( A_title,E_title);
+	}
+
+}

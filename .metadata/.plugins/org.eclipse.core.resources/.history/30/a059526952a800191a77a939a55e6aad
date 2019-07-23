@@ -1,0 +1,28 @@
+package pack1;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class My_Demo_05 {
+
+	public static void main(String[] args) throws InterruptedException {
+		WebDriver driver;
+		System.setProperty("webdriver.chrome.driver","C:\\Driver\\Chrome Driver\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.navigate().to("http://10.232.237.143:443/TestMeApp");
+		driver.manage().window().maximize();
+		Thread.sleep(5000);
+		
+		WebElement signin = driver.findElement(By.xpath("/a[contains(text(),'SignIn')]"));
+		System.out.print(signin);
+		driver.findElement(By.xpath("//a[contains(text(),'SignIn')]")).click();
+		driver.findElement(By.xpath("//input[@name='userName']")).sendKeys("Sunil");
+		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("abcdef");
+		driver.findElement(By.xpath("//input[@name='Login']")).click();
+
+
+	}
+
+}

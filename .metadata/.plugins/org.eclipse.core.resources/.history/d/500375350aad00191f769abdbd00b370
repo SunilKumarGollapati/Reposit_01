@@ -1,0 +1,9 @@
+package testCase2;
+
+import org.testng.annotations.Test;
+
+public class OnlineShoppingProject {
+  @Test
+  public void f() {
+  }
+}

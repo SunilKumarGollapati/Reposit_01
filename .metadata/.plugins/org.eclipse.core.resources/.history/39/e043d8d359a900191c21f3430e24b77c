@@ -1,0 +1,27 @@
+package demo567;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
+
+public class Demo567{
+	
+  @Test
+  
+  public void f() {
+	  System.setProperty("webdriver.gecko.driver","C:\\Driver\\Chrome Driver\\geckodriver.exe");
+		FirefoxDriver driver = new FirefoxDriver();
+		driver.get("http://10.232.237.143:443/TestMeApp");
+		driver.manage().window().maximize();
+		Actions act1 = new Actions(driver);
+		WebElement El1 = driver.findElement(By.xpath("//a[contains(text(),'AboutUs')]"));
+		act1.moveToElement(El1).build().perform();
+		driver.findElement(By.xpath("//a[contains(text()='Our Offices')]")).click();
+//		act1.moveToElement(El2).build().perform();
+		driver.findElement(By.xpath("//a[contains(text()='Bangalore')]")).click();
+//		act1.moveToElement(El3).build().perform();
+		
+  }
+}

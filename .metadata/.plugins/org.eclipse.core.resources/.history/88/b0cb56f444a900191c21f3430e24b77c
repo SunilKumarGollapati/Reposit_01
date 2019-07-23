@@ -1,0 +1,20 @@
+package demo456;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.Test;
+
+public class Demo1234 {
+	WebDriver driver;
+  @Test
+  public void f() throws InterruptedException {
+	  System.setProperty("webdriver.gecko.driver","C:\\Driver\\Chrome Driver\\geckodriver.exe");
+		driver = new FirefoxDriver();
+		driver.navigate().to("https://www.tsrtconline.in/oprs-web/");
+		driver.manage().window().maximize();
+		driver.findElement(By.xpath("//input[@class='chkavailabilityBtn']")).click();
+		
+		
+  }
+}

@@ -1,0 +1,14 @@
+package Demo567;
+
+import org.testng.annotations.Test;
+
+public class Create XL {
+  @Test
+  public void createWorkBook() {
+	  XSSFWorkbook Workbook = new XSSFWorkBook();
+	  FileOutputStream() out = new FileOutputStream(new File("DemoNewWB.xlsx"));
+	  workbook.write(out);
+	  out.close();
+	  System.out.println("Created");
+  }
+}

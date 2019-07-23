@@ -1,0 +1,25 @@
+package demo567;
+
+import org.testng.annotations.Test;
+
+public class ReadExcel {
+  @Test
+  public void ReadExcelSet() {
+	  File src = new File("C:\\Users\\training_d2.03.07\\Desktop\\Test_Automation_Stream_Training\\Test_Automation_Stream_Training\\Week3_Selenium_Java\\Excel.xlsx\\");
+	  FileInputStream fis = new FileInputStream(src);
+	  XSSSFWorkbook wb = new XSSFWorkbook(fis);
+	  XSSFSheet sheet1 = wb.getSheet(0);
+	  
+	  int rowcount = sheet1.getLastRowNum();
+	  System.out.println("Total no of rows is:"+rowCount);
+	  
+	  for(int i=0;i<=rowCount;i++) {
+		  String Data = sheet1.getRow(i).getCell(0).getStringCellValue();
+		  System.out.println("Test Data from excel heet is : "+Data);
+		  
+		  String Data1 = sheet1.getRow(i).getCell(0).getStringCellValue();
+		  System.out.println("Test Data from excel heet is : "+Data1);
+	  }
+	  wb.close();
+  }
+}
